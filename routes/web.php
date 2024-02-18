@@ -20,5 +20,11 @@ Route::get('/', function () {
 Route::prefix('todo')->group(function(){
 
     Route::get('/', [TodoController::class, 'index'])->name('todo.index');
+    Route::get('add', [TodoController::class, 'add'])->name('todo.add');
+    Route::post('store', [TodoController::class, 'store'])->name('todo.store');
+    Route::get('complete/{id}', [TodoController::class, 'complete'])->name('todo.complete');
+    Route::get('update/{id}', [TodoController::class, 'update'])->name('todo.update');
+    Route::post('store-update/{id}', [TodoController::class, 'storeUpdate'])->name('todo.store-update');
+    Route::get('delete/{id}', [TodoController::class,'delete'])->name('todo.delete');
 
 });
